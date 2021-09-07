@@ -4,26 +4,21 @@ import { ChatUser } from "../actions";
 import '../components/FontAwesome/';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
-
-
 function BoxChat(props) {
-    const { user, data } = props;
-    const check = data.map((item) => {
-        return item.chatroom1;
-    });
+    const { user } = props;
     const [content, change] = useState("");
+    // Thanh input
     const onChange = (e) => {
         change({
             content: e.target.value,
         });
     };
+    //danh sach frien
     const Chats = (user) => {
         let text = null;
 
-        if (user  && user.chatroom1) {
-            if ( user.chatroom1 !== null) {
+        if (user && user.chatroom1) {
+            if (user.chatroom1 !== null) {
                 text = user.chatroom1.map((item, index) => {
                     if (item.user === "name") {
                         return (
@@ -52,10 +47,7 @@ function BoxChat(props) {
         }
         return text;
     };
-    useEffect(() => {
-        Chats();
-        console.log("callback");
-    }, [content]);
+    //xu li button gui tin nhan di
     const onSend = () => {
         const id = props.user.index;
         props.ChatUser(content, id);
@@ -65,16 +57,19 @@ function BoxChat(props) {
     };
     return (
         <div className="boxchat">
+            {/* danh sach frien */}
             <div className="boxchat__content">
                 {Chats(user)}
             </div>
             <div className="boxchat__input">
+                {/* nhan tin nhan */}
                 <div className="boxchat__input__form">
                     <input
                         onChange={onChange}
                         type="text"
                         placeholder="Write your message..."
                     />
+                    {/* gui tin nhan */}
                     <div className="boxchat__input__form__icon">
                         <i ><FontAwesomeIcon icon={['fas', 'smile']} /></i>
                         <i onClick={onSend} ><FontAwesomeIcon icon={['fas', 'location-arrow']} /></i>
@@ -84,13 +79,13 @@ function BoxChat(props) {
         </div>
     );
 }
-
+//xu li hien thi tin nhan trong chat
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        data: state.data,
     };
 };
+//xu li button truyen tn di
 const mapDispatchToProps = (dispatch) => {
     return {
         ChatUser: (content, id) => {
