@@ -27,6 +27,7 @@ function BoxChat(props) {
                                 <div className="boxchat__content__message__left__content">
                                     <p>{item.content}</p>
                                 </div>
+                                <div>hihi</div>
                             </div>
                         );
                     }
