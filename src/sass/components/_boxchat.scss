@@ -1,0 +1,98 @@
+.boxchat {
+    padding: 10px 0px;
+    position: relative;
+    &__content {
+        padding: 10px;
+
+        &__message__left {
+            display: flex;
+            align-items: center;
+            width: auto;
+            padding: 3px;
+
+            img {
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-right: 5px;
+            }
+
+            &__content {
+                p {
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                    background: $main-bg-app;
+                }
+            }
+        }
+
+        &__message__right {
+            @include flex(center, flex-end);
+            width: auto;
+            padding: 3px;
+
+            &__content {
+                p {
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                    background: #b2bec3;
+                }
+            }
+            i {
+                color: $txt-color;
+            }
+        }
+    }
+
+    &__input {
+        position: fixed;
+        bottom: 3px;
+        width: calc(50% - 0px);
+
+        &__form {
+            padding: 10px;
+            position: relative;
+
+            input {
+                width: 100%;
+                height: 50px;
+                outline: none;
+                background: $main-bg-app;
+                border-radius: 10px;
+                border: 0;
+                padding: 10px 165px 10px 10px;
+                font-size: 15px;
+            }
+            &__icon {
+                font-size: 20px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 85%;
+
+                i {
+                    margin: 0px 10px;
+                    color: $txt-color;
+                    padding: 10px;
+                    cursor: pointer;
+
+                    &:last-child {
+                        color: white;
+                        background: #10ac84;
+                        border-radius: 10px;
+
+                        &:hover {
+                            opacity: 0.8;
+                            color: white;
+                        }
+                    }
+
+                    &:hover {
+                        color: $main-color;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,185 @@
+.contact {
+    padding: 10px 10px 0 10px;
+    &__user {
+        
+        &__icon {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            i {
+                position: absolute;
+                right: 0;
+                top: 10px;
+                font-size: 18px;
+                color: $txt-color;
+                float: right;
+                cursor: pointer;
+                padding-left: 50px;
+            }
+        }
+
+        &__avt {
+            @include flex(center, center);
+
+            img {
+                margin-top: 20px;
+                width: 85px;
+                height: 85px;
+                object-fit: cover;
+                clip-path: circle(50% at 50% 50%);
+            }
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500
+        }
+
+        &__main {
+            @include flex(center, center);
+            margin: 15px 0;
+
+            button {
+                padding: 5px 16px;
+                font-size: 17px;
+                color: $second-color;
+                background: rgba(38, 222, 129,0.4);
+                border: 0;
+                outline: none;
+                border-radius: 8px;
+                cursor: pointer;
+
+                i {
+                    margin-left: 5px;
+                    font-size: 18px;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+          
+    }
+
+    &__search {
+        position: relative;
+
+        input {
+            height: 38px;
+            outline: none;
+            border-radius: 10px;
+            border: 0;
+            background: $bg-input;
+            padding: 5px 30px 5px 10px;
+            width: 100%;
+            z-index: 99;
+            
+            &::placeholder {
+                color: #808e9b;
+                font-size: 14px;
+            }
+        }
+
+        label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 3%;
+            z-index: 1;
+
+            i {
+                z-index: 100;
+                font-size: 20px;
+                color: #808e9b;
+            }
+        }
+    }
+
+    &__friends {
+        
+        &__heading {
+            @include flex(center, space-between);
+            margin-top: 15px;
+
+            p {
+                font-size: 16px;
+                font-weight: 600;
+                color: $txt-color;
+            }
+
+            &__icon {
+                font-size: 20px;
+                cursor: pointer;
+                
+                i{
+                    margin-left: 10px;
+                    color: $txt-color;
+
+                    &:first-child {
+                        padding: 8px;
+                        color: $second-color;
+                        background: rgba(38, 222, 129,0.4);
+                        border-radius: 10px;
+
+                        &:hover {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__list {
+            margin-top: 15px;
+            overflow: hidden;
+
+            &__item {
+                // @include flex(center, space-between);
+                display: grid;
+                grid-template-columns: 20% 65% 15%;
+                padding: 10px 5px;
+                background: transparent;
+                border-radius: 8px;
+                cursor: pointer;
+                margin-bottom: 5px;
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                    clip-path: circle(50% at 50% 50%);
+                }
+
+                &__content {
+
+                    h3 {
+                        color: $main-color;
+                        font-size: 16px;
+                    }
+
+                    p {
+                        color: $txt-color;
+                        font-size: 15px;
+                    }
+                }
+
+                span {
+                    color: $txt-color;
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+
+                &:hover {
+                    background: $bg-chat;
+                }
+            }
+
+            .active {
+                background: $bg-chat;
+            }
+        }
+    }
+}
