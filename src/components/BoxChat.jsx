@@ -26,7 +26,6 @@ function BoxChat(props) {
                                 <img src={item.img} alt="" />
                                 <div className="boxchat__content__message__left__content">
                                     <p>{item.content}</p>
-                                    <h1>hihi</h1>
                                 </div>
                             </div>
                         );
